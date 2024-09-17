@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Personal Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Floating Navigation Bar Styling */
+nav.floating-nav {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.floating-nav .nav-links {
+    list-style: none;
+}
+
+.floating-nav .nav-links li {
+    margin-bottom: 15px;
+}
+
+.floating-nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.floating-nav .nav-links a:hover {
+    color: #1abc9c;
+}
+
+/* Header Section */
+header {
+    background-color: #1abc9c;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid white;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.bio {
+    font-size: 1.2rem;
+    color: #f4f4f4;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #34495e;
+}
+
+/* Skills, Portfolio, and Contact Sections */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.skills, .portfolio, .contact {
+    background-color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1abc9c;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.project {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    color: #34495e;
+}
+/* Skills Section */
+.skills {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2rem;
+    color: #1abc9c;
+    margin-bottom: 30px;
+}
+
+.skills-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.skills-table th, .skills-table td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.skills-table th {
+    background-color: #34495e;
+    color: white;
+    font-weight: 700;
+}
+
+.skills-table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.skills-table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #1abc9c;
+    border-radius: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .skills-table {
+        width: 90%;
+    }
+}
+/* Progress Bar with Hoverable Percentage */
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #1abc9c;
+    border-radius: 20px;
+    transition: width 0.3s ease-in-out;
+    position: relative;
+}
+
+.progress-bar:hover .progress::before {
+    content: attr(data-percentage);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Example percentages added in-line to match the previous setup */
+.progress[data-percentage="90%"] {
+    width: 90%;
+}
+
+.progress[data-percentage="85%"] {
+    width: 85%;
+}
+
+.progress[data-percentage="80%"] {
+    width: 80%;
+}
+
+.progress[data-percentage="75%"] {
+    width: 75%;
+}
+
+.progress[data-percentage="70%"] {
+    width: 70%;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #1abc9c;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .bio {
+        font-size: 1rem;
+    }
+
+    .floating-nav {
+        right: 10px;
+    }
+
+    .floating-nav .nav-links a {
+        font-size: 1rem;
+    }
+}
+
+	</style>
+</head>
+<body>
+	<nav class="floating-nav">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="container">
+            <img src="https://i.postimg.cc/rwtvxKyj/passport.jpg" alt="Profile Picture" class="profile-img">
+            <h1>Jerwin Manuel</h1>
+            <p class="bio">Full-Stack Developer | Aspiring Data Scientist</p>
+            <ul class="social-icons">
+				<li><a href="https://github.com/jerw04" target="_blank"><i class="fab fa-github"></i></a></li>
+				<li><a href="https://www.instagram.com/_jerwx?igsh=MWlrdTlnNHoyNDFvOA==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="www.linkedin.com/in/jerwin-manuel-765895272" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			</ul>
+
+        </div>
+    </header>
+<!-- Skills Section -->
+<section class="skills" id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <table class="skills-table">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>Proficiency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress" data-percentage="90%"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress" data-percentage="85%"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress" data-percentage="80%"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress" data-percentage="75%"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>React</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress" data-percentage="70%"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+    <section class="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="project">
+                <h3>Project 1: TrafficIntelligence</h3>
+                <p>Developed a traffic analysis tool to predict traffic volume based on real-time data.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2: Restaurant Landing Page</h3>
+                <p>Designed and developed a high UI/UX landing page for a restaurant using HTML, CSS, and JavaScript.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: jerwinmanuel@example.com</p>
+            <p>Phone: 12345-67890</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Jerwin Manuel | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js">
+	// Add smooth scrolling to anchor links (e.g., social media icons)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+</body>
+</html>
